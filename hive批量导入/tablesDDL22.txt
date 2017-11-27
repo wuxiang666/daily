@@ -1,0 +1,1843 @@
+create TABLE `als`(
+  `userid` int, 
+  `movieid` int, 
+  `rating` float, 
+  `timestamp` bigint)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/als') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/als'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"userId\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"movieId\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"rating\",\"type\":\"float\",\"nullable\":true,\"metadata\":{}},{\"name\":\"timestamp\",\"type\":\"long\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='3493', 
+  'transient_lastDdlTime'='1510133151')
+;create TABLE `alspre`(
+  `userid` int, 
+  `movieid` int, 
+  `rating` float, 
+  `timestamp` bigint, 
+  `prediction` float)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/alspre') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/alspre'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"userId\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"movieId\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"rating\",\"type\":\"float\",\"nullable\":true,\"metadata\":{}},{\"name\":\"timestamp\",\"type\":\"long\",\"nullable\":true,\"metadata\":{}},{\"name\":\"prediction\",\"type\":\"float\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='9686', 
+  'transient_lastDdlTime'='1511320757')
+;create TABLE `alspretest`(
+  `userid` int, 
+  `movieid` int, 
+  `rating` float, 
+  `timestamp` bigint, 
+  `prediction` float)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/alspretest') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/alspretest'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"userId\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"movieId\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"rating\",\"type\":\"float\",\"nullable\":true,\"metadata\":{}},{\"name\":\"timestamp\",\"type\":\"long\",\"nullable\":true,\"metadata\":{}},{\"name\":\"prediction\",\"type\":\"float\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='9686', 
+  'transient_lastDdlTime'='1510135190')
+;create TABLE `binarizer`(
+  `id` int, 
+  `feature` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/binarizer') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/binarizer'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"feature\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='1608', 
+  'transient_lastDdlTime'='1509703921')
+;create TABLE `binarizerconjure`(
+  `id` int, 
+  `feature` double, 
+  `binarized_feature` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/binarizerconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/binarizerconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"feature\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"binarized_feature\",\"type\":\"double\",\"nullable\":true,\"metadata\":{\"ml_attr\":{\"type\":\"binary\"}}}]}', 
+  'totalSize'='2397', 
+  'transient_lastDdlTime'='1511250764')
+;create TABLE `bisectingkmeans`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/bisectingkmeans') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/bisectingkmeans'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":3}}]}', 
+  'totalSize'='1686', 
+  'transient_lastDdlTime'='1510130455')
+;create TABLE `bisectingkmeanspre`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `prediction` int)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/bisectingkmeanspre') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/bisectingkmeanspre'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":3}},{\"name\":\"prediction\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='1893', 
+  'transient_lastDdlTime'='1511320186')
+;create TABLE `bls`(
+  `userid` int, 
+  `movieid` int, 
+  `rating` float, 
+  `timestamp` bigint)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/als') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/als'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"userId\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"movieId\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"rating\",\"type\":\"float\",\"nullable\":true,\"metadata\":{}},{\"name\":\"timestamp\",\"type\":\"long\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='3493', 
+  'transient_lastDdlTime'='1511589027')
+;create TABLE `bucketizer`(
+  `features` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/bucketizer') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/bucketizer'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='4', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"features\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='1556', 
+  'transient_lastDdlTime'='1509937815')
+;create TABLE `bucketizerconjure`(
+  `features` double, 
+  `bucketedfeatures` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/bucketizerconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/bucketizerconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='4', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"features\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"bucketedFeatures\",\"type\":\"double\",\"nullable\":true,\"metadata\":{\"ml_attr\":{\"ord\":true,\"vals\":[\"-1000.0, -0.5\",\"-0.5, 0.0\",\"0.0, 0.5\",\"0.5, 1000.0\"],\"type\":\"nominal\"}}}]}', 
+  'totalSize'='2902', 
+  'transient_lastDdlTime'='1511251864')
+;create TABLE `chisqselector`(
+  `f1` double, 
+  `f2` double, 
+  `f3` double, 
+  `f4` double, 
+  `label` double, 
+  `vec` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/chisqselector') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/chisqselector'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"f1\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"f2\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"f3\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"f4\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"vec\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"attrs\":{\"numeric\":[{\"idx\":0,\"name\":\"f1\"},{\"idx\":1,\"name\":\"f2\"},{\"idx\":2,\"name\":\"f3\"},{\"idx\":3,\"name\":\"f4\"}]},\"num_attrs\":4}}}]}', 
+  'totalSize'='2452', 
+  'transient_lastDdlTime'='1509948975')
+;create TABLE `chisqselectorconjure`(
+  `f1` double, 
+  `f2` double, 
+  `f3` double, 
+  `f4` double, 
+  `label` double, 
+  `vec` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `chisq` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/chisqselectorconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/chisqselectorconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"f1\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"f2\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"f3\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"f4\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"vec\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"attrs\":{\"numeric\":[{\"idx\":0,\"name\":\"f1\"},{\"idx\":1,\"name\":\"f2\"},{\"idx\":2,\"name\":\"f3\"},{\"idx\":3,\"name\":\"f4\"}]},\"num_attrs\":4}}},{\"name\":\"chisq\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"attrs\":{\"numeric\":[{\"idx\":0,\"name\":\"f1\"}]},\"num_attrs\":1}}}]}', 
+  'totalSize'='3614', 
+  'transient_lastDdlTime'='1511252173')
+;create TABLE `countvectorizer`(
+  `id` int, 
+  `words` array<string>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/countvectorizer') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/countvectorizer'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"words\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='638', 
+  'transient_lastDdlTime'='1509694271')
+;create TABLE `countvectorizer_test`(
+  `id` int, 
+  `words` array<string>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/countvectorizer_test') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/countvectorizer_test'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='2', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"words\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='1253', 
+  'transient_lastDdlTime'='1509701718')
+;create TABLE `countvectorzerconjure`(
+  `id` int, 
+  `words` array<string>, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/countvectorzerconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/countvectorzerconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"words\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='1879', 
+  'transient_lastDdlTime'='1511250402')
+;create TABLE `countvectorzerconjures`(
+  `id` int, 
+  `words` array<string>, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/countvectorzerconjures') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/countvectorzerconjures'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"words\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='1879', 
+  'transient_lastDdlTime'='1510659509')
+;create TABLE `dct`(
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/dct') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/dct'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='3889', 
+  'transient_lastDdlTime'='1509705410')
+;create TABLE `dctconjure`(
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `featuresdct` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/dctconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/dctconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"featuresDCT\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='7276', 
+  'transient_lastDdlTime'='1511250961')
+;create TABLE `decisiontree`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/decisiontree') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/decisiontree'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":692}}]}', 
+  'totalSize'='22862', 
+  'transient_lastDdlTime'='1510036822')
+;create TABLE `decisiontreeregression`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/decisiontreeregression') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/decisiontreeregression'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":10}}]}', 
+  'totalSize'='45997', 
+  'transient_lastDdlTime'='1510128063')
+;create TABLE `decisiontreeregression1`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `prediction` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/decisiontreeregression1') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/decisiontreeregression1'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":10}},{\"name\":\"prediction\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='46778', 
+  'transient_lastDdlTime'='1510128632')
+;create TABLE `decisiontreeregressionpre`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `prediction` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/decisiontreeregressionpre') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/decisiontreeregressionpre'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":10}},{\"name\":\"prediction\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='46778', 
+  'transient_lastDdlTime'='1511317924')
+;create TABLE `decisiontreetestpre`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `rawprediction` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `probabilities` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `prediction` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/decisiontreetestpre') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/decisiontreetestpre'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":692}},{\"name\":\"rawPrediction\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"probabilities\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"prediction\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='25514', 
+  'transient_lastDdlTime'='1511253023')
+;create TABLE `decisiontreetestpres`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `rawprediction` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `probabilities` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `prediction` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/decisiontreetestpres') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/decisiontreetestpres'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":692}},{\"name\":\"rawPrediction\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"probabilities\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"prediction\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='25514', 
+  'transient_lastDdlTime'='1510641819')
+;create TABLE `gbtctestpre`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `prediction` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/gbtctestpre') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/gbtctestpre'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":692}},{\"name\":\"prediction\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='23100', 
+  'transient_lastDdlTime'='1511262803')
+;create TABLE `indextostring`(
+  `id` int, 
+  `category` string, 
+  `categoryindex` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/indextostring') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/indextostring'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='4', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"category\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"categoryIndex\",\"type\":\"double\",\"nullable\":true,\"metadata\":{\"ml_attr\":{\"vals\":[\"a\",\"c\",\"b\"],\"type\":\"nominal\",\"name\":\"categoryIndex\"}}}]}', 
+  'totalSize'='3236', 
+  'transient_lastDdlTime'='1509706468')
+;create TABLE `indextostringconjure`(
+  `id` int, 
+  `category` string, 
+  `categoryindex` double, 
+  `originalcategory` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/indextostringconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/indextostringconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='4', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"category\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"categoryIndex\",\"type\":\"double\",\"nullable\":true,\"metadata\":{\"ml_attr\":{\"type\":\"nominal\",\"vals\":[\"a\",\"c\",\"b\"],\"name\":\"categoryIndex\"}}},{\"name\":\"originalCategory\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='4038', 
+  'transient_lastDdlTime'='1511251211')
+;create TABLE `indextostringconjure2`(
+  `id` int, 
+  `category` string, 
+  `categoryindex` double, 
+  `originalcategory` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/indextostringconjure2') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/indextostringconjure2'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='4', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"category\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"categoryIndex\",\"type\":\"double\",\"nullable\":true,\"metadata\":{\"ml_attr\":{\"type\":\"nominal\",\"vals\":[\"a\",\"c\",\"b\"],\"name\":\"categoryIndex\"}}},{\"name\":\"originalCategory\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='4038', 
+  'transient_lastDdlTime'='1510124751')
+;create TABLE `iris`(
+  `f1` double, 
+  `f2` double, 
+  `f3` double, 
+  `f4` double, 
+  `label` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/iris') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/iris'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"f1\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"f2\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"f3\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"f4\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"label\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='2230', 
+  'transient_lastDdlTime'='1510743691')
+;create TABLE `linearregression`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/linearregression') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/linearregression'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":10}}]}', 
+  'totalSize'='45997', 
+  'transient_lastDdlTime'='1510043529')
+;create TABLE `linearregressionpre`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `prediction` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/linearregressionpre') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/linearregressionpre'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":10}},{\"name\":\"prediction\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='50212', 
+  'transient_lastDdlTime'='1511318893')
+;create TABLE `logisticregression`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/logisticregression') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/logisticregression'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":692}}]}', 
+  'totalSize'='29151', 
+  'transient_lastDdlTime'='1509952756')
+;create TABLE `logisticregressiontestpre`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `rawpredictioncol` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `probability` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `predic` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/logisticregressiontestpre') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/logisticregressiontestpre'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":692}},{\"name\":\"RawPredictionCol\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"probability\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"predic\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='34471', 
+  'transient_lastDdlTime'='1511252610')
+;create TABLE `minmaxscaler`(
+  `id` int, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/minmaxscaler') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/minmaxscaler'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='4363', 
+  'transient_lastDdlTime'='1509936583')
+;create TABLE `minmaxscalerconjure`(
+  `id` int, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `scaledfeatures` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/minmaxscalerconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/minmaxscalerconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"scaledFeatures\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='7822', 
+  'transient_lastDdlTime'='1511251746')
+;create TABLE `naivebayestestpre`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `rawprediction` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `probabilities` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `prediction` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/naivebayestestpre') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/naivebayestestpre'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":692}},{\"name\":\"rawPrediction\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"probabilities\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"prediction\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='26668', 
+  'transient_lastDdlTime'='1511263416')
+;create TABLE `ngram`(
+  `id` int, 
+  `words` array<string>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/ngram') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/ngram'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"words\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='1992', 
+  'transient_lastDdlTime'='1509703402')
+;create TABLE `ngramconjure`(
+  `id` int, 
+  `words` array<string>, 
+  `ngrams` array<string>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/ngramconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/ngramconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"words\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}},{\"name\":\"ngrams\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='3081', 
+  'transient_lastDdlTime'='1511489441')
+;create TABLE `normalizer`(
+  `id` int, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/normalizer') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/normalizer'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='4357', 
+  'transient_lastDdlTime'='1509935299')
+;create TABLE `normalizerconjure`(
+  `id` int, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `normfeatures` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/normalizerconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/normalizerconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"normFeatures\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='7765', 
+  'transient_lastDdlTime'='1511251515')
+;create TABLE `onehotencoder`(
+  `id` int, 
+  `category` string, 
+  `categoryindex` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/onehotencoder') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/onehotencoder'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='4', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"category\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"categoryIndex\",\"type\":\"double\",\"nullable\":true,\"metadata\":{\"ml_attr\":{\"vals\":[\"a\",\"c\",\"b\"],\"type\":\"nominal\",\"name\":\"categoryIndex\"}}}]}', 
+  'totalSize'='3236', 
+  'transient_lastDdlTime'='1509932384')
+;create TABLE `onehotencoderconjure`(
+  `id` int, 
+  `category` string, 
+  `categoryindex` double, 
+  `categoryvec` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/onehotencoderconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/onehotencoderconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='4', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"category\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"categoryIndex\",\"type\":\"double\",\"nullable\":true,\"metadata\":{\"ml_attr\":{\"type\":\"nominal\",\"vals\":[\"a\",\"c\",\"b\"],\"name\":\"categoryIndex\"}}},{\"name\":\"categoryVec\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"attrs\":{\"binary\":[{\"idx\":0,\"name\":\"a\"},{\"idx\":1,\"name\":\"c\"},{\"idx\":2,\"name\":\"b\"}]},\"num_attrs\":3}}}]}', 
+  'totalSize'='8460', 
+  'transient_lastDdlTime'='1511251318')
+;create TABLE `pca`(
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/pca') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/pca'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='3963', 
+  'transient_lastDdlTime'='1509704383')
+;create TABLE `pcaconjure`(
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `pcafeatures` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/pcaconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/pcaconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"pcaFeatures\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='7335', 
+  'transient_lastDdlTime'='1511250842')
+;create TABLE `randomforestregressionpre`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `prediction` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/randomforestregressionpre') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/randomforestregressionpre'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":10}},{\"name\":\"prediction\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='50212', 
+  'transient_lastDdlTime'='1511319869')
+;create TABLE `randomforesttestpre`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `rawprediction` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `probabilities` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `prediction` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/randomforesttestpre') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/randomforesttestpre'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":692}},{\"name\":\"rawPrediction\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"probabilities\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"prediction\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='25653', 
+  'transient_lastDdlTime'='1511263934')
+;create TABLE `regextokenizer`(
+  `id` int, 
+  `sentence` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/regextokenizer') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/regextokenizer'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='1994', 
+  'transient_lastDdlTime'='1509702108')
+;create TABLE `regextokenizerconjure`(
+  `id` int, 
+  `sentence` string, 
+  `words` array<string>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/regextokenizerconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/regextokenizerconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"words\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='2962', 
+  'transient_lastDdlTime'='1511499278')
+;create TABLE `src`(
+  `key` int, 
+  `value` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/src'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='true', 
+  'numFiles'='10', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"key\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"value\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='58120', 
+  'transient_lastDdlTime'='1509613237')
+;create TABLE `src2`(
+  `key` int, 
+  `value` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/src2'
+TBLPROPERTIES (
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"key\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"value\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}', 
+  'transient_lastDdlTime'='1509277886')
+;create TABLE `src_temp`(
+  `key` int, 
+  `value` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/src_temp'
+TBLPROPERTIES (
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"key\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"value\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}', 
+  'transient_lastDdlTime'='1509612844')
+;create TABLE `src_wuxiang`(
+  `key` int, 
+  `value` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/src_wuxiang'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='true', 
+  'numFiles'='3', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"key\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"value\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='17436', 
+  'transient_lastDdlTime'='1509199892')
+;create TABLE `src_wuxiang_fck`(
+  `key` int, 
+  `value` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/src_wuxiang_fck'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='true', 
+  'numFiles'='1', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"key\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"value\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='5812', 
+  'transient_lastDdlTime'='1509200529')
+;create TABLE `standardscaler`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/standardscaler') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/standardscaler'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":692}}]}', 
+  'totalSize'='29151', 
+  'transient_lastDdlTime'='1509935925')
+;create TABLE `standardscalerconjure`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `scaledfeatures` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/standardscalerconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/standardscalerconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":692}},{\"name\":\"scaledFeatures\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='136639', 
+  'transient_lastDdlTime'='1511251638')
+;create TABLE `stringindexer`(
+  `id` int, 
+  `category` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/stringindexer') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/stringindexer'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='4', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"category\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='2082', 
+  'transient_lastDdlTime'='1509705860')
+;create TABLE `stringindexerconjure`(
+  `id` int, 
+  `category` string, 
+  `categoryindex` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/stringindexerconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/stringindexerconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='4', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"category\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"categoryIndex\",\"type\":\"double\",\"nullable\":true,\"metadata\":{\"ml_attr\":{\"vals\":[\"a\",\"c\",\"b\"],\"type\":\"nominal\",\"name\":\"categoryIndex\"}}}]}', 
+  'totalSize'='3260', 
+  'transient_lastDdlTime'='1511251067')
+;create TABLE `tb2_copy_test666`(
+  `lable` double, 
+  `sentence` string, 
+  `segmented` array<string>, 
+  `tf` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/tb2_copy_test666'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='true', 
+  'numFiles'='1', 
+  'numRows'='3', 
+  'rawDataSize'='333', 
+  'totalSize'='336', 
+  'transient_lastDdlTime'='1511582394')
+;create TABLE `test1`(
+  `key` int, 
+  `value` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/test1'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='true', 
+  'numFiles'='1', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"key\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"value\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='5812', 
+  'transient_lastDdlTime'='1509276532')
+;create TABLE `test2`(
+  `lable` double, 
+  `sentence` string, 
+  `segmented` array<string>, 
+  `tf` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/test2') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/test2'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"lable\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"segmented\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}},{\"name\":\"tf\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"num_attrs\":100}}}]}', 
+  'totalSize'='2460', 
+  'transient_lastDdlTime'='1511329316')
+;create TABLE `test3`(
+  `lable` double, 
+  `sentence` string, 
+  `segmented` array<string>, 
+  `tf` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/test3') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'file:/home/wuxiang/hive-1.2.2/metastore_db/test3'
+TBLPROPERTIES (
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"lable\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"segmented\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}},{\"name\":\"tf\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"num_attrs\":100}}}]}', 
+  'transient_lastDdlTime'='1509675427')
+;create TABLE `test4`(
+  `lable` double, 
+  `sentence` string, 
+  `segmented` array<string>, 
+  `tf` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/test4') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/test4'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"lable\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"segmented\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}},{\"name\":\"tf\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"num_attrs\":100}}}]}', 
+  'totalSize'='2460', 
+  'transient_lastDdlTime'='1509675889')
+;create TABLE `test5`(
+  `lable` double, 
+  `sentence` string, 
+  `segmented` array<string>, 
+  `tf` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/test5') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/test5'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"lable\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"segmented\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}},{\"name\":\"tf\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"num_attrs\":100}}}]}', 
+  'totalSize'='2460', 
+  'transient_lastDdlTime'='1509676435')
+;create TABLE `test666`(
+  `lable` double, 
+  `sentence` string, 
+  `segmented` array<string>, 
+  `tf` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/test666') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/test666'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"lable\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"segmented\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}},{\"name\":\"tf\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"num_attrs\":100}}}]}', 
+  'totalSize'='2460', 
+  'transient_lastDdlTime'='1509676754')
+;create TABLE `test6666`(
+  `lable` double, 
+  `sentence` string, 
+  `segmented` array<string>, 
+  `tf` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/test6666') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/test6666'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"lable\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"segmented\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}},{\"name\":\"tf\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"num_attrs\":100}}}]}', 
+  'totalSize'='2460', 
+  'transient_lastDdlTime'='1509676819')
+;create TABLE `testset`(
+  `id` int, 
+  `sentence` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/testset') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/testset'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='2012', 
+  'transient_lastDdlTime'='1511259114')
+;create TABLE `testsetss`(
+  `f1` double, 
+  `f2` double, 
+  `f3` double, 
+  `f4` double, 
+  `label` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/testsetss') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/testsetss'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"f1\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"f2\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"f3\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"f4\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"label\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='2230', 
+  'transient_lastDdlTime'='1510813149')
+;create TABLE `testtable`(
+  `name` string COMMENT 'name value', 
+  `addr` string COMMENT 'addr value')
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/testtable'
+TBLPROPERTIES (
+  'transient_lastDdlTime'='1509176220')
+;create TABLE `tfidfvectorize`(
+  `lable` double, 
+  `sentence` string, 
+  `segmented` array<string>, 
+  `tf` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `tfidf` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/tfidfvectorize') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/tfidfvectorize'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"lable\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"segmented\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}},{\"name\":\"tf\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"num_attrs\":100}}},{\"name\":\"tfidf\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='3716', 
+  'transient_lastDdlTime'='1511250023')
+;create TABLE `trainset`(
+  `id` int, 
+  `sentence` string)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/trainset') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/trainset'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='3', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='1029', 
+  'transient_lastDdlTime'='1511259112')
+;create TABLE `vectorassembler`(
+  `id` int, 
+  `hour` int, 
+  `mobile` double, 
+  `userfeatures` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `clicked` double)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/vectorassembler') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/vectorassembler'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"hour\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"mobile\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"userFeatures\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"clicked\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='2000', 
+  'transient_lastDdlTime'='1509939211')
+;create TABLE `vectorassemblerconjure`(
+  `id` int, 
+  `hour` int, 
+  `mobile` double, 
+  `userfeatures` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `clicked` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/vectorassemblerconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/vectorassemblerconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"id\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"hour\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"mobile\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"userFeatures\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{}},{\"name\":\"clicked\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"attrs\":{\"numeric\":[{\"idx\":0,\"name\":\"hour\"},{\"idx\":1,\"name\":\"mobile\"},{\"idx\":2,\"name\":\"userFeatures_0\"},{\"idx\":3,\"name\":\"userFeatures_1\"},{\"idx\":4,\"name\":\"userFeatures_2\"}]},\"num_attrs\":5}}}]}', 
+  'totalSize'='3334', 
+  'transient_lastDdlTime'='1511251428')
+;create TABLE `vectorindexer`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/vectorindexer') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/vectorindexer'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":692}}]}', 
+  'totalSize'='29151', 
+  'transient_lastDdlTime'='1509934635')
+;create TABLE `vectorindexerconjure`(
+  `label` double, 
+  `features` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>, 
+  `indexed` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/vectorindexerconjure') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/vectorindexerconjure'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='5', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"label\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"features\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"numFeatures\":692}},{\"name\":\"indexed\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"attrs\":{\"nominal\":[{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":0},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":1},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":2},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":3},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":4},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":5},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":6},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":7},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":8},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":9},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":10},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":11},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":12},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":13},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":14},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":15},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":16},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":17},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":18},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":19},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":20},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":21},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":22},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":23},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":24},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":25},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":26},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":27},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":28},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":29},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":30},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":31},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":32},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":33},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":34},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":35},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":36},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":37},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":38},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":39},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":40},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":41},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":42},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":43},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":44},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":45},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":46},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":47},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":48},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":49},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":50},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":51},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":52},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":53},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":54},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":55},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":56},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":57},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":58},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":59},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":60},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":61},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":62},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":63},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":64},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":65},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":66},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":67},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":68},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":69},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":70},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":71},{\"ord\":false,\"vals\":[\"0.0\"],', 
+  'spark.sql.sources.schema.part.1'='\"idx\":72},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":73},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":74},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":75},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":76},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":77},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":78},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":79},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":80},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":81},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":82},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":83},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":84},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":85},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":86},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":87},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":88},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":89},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":90},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":91},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":92},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":93},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":94},{\"ord\":false,\"vals\":[\"0.0\",\"64.0\",\"121.0\"],\"idx\":97},{\"ord\":false,\"vals\":[\"0.0\",\"70.0\",\"191.0\"],\"idx\":98},{\"ord\":false,\"vals\":[\"0.0\",\"70.0\",\"166.0\",\"255.0\"],\"idx\":99},{\"ord\":false,\"vals\":[\"0.0\",\"11.0\",\"88.0\",\"165.0\",\"222.0\"],\"idx\":100},{\"ord\":false,\"vals\":[\"0.0\",\"55.0\",\"114.0\",\"127.0\",\"150.0\"],\"idx\":101},{\"ord\":false,\"vals\":[\"0.0\",\"5.0\",\"72.0\"],\"idx\":102},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":103},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":104},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":105},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":106},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":107},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":108},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":109},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":110},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":111},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":112},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":113},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":114},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":115},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":116},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":117},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":118},{\"ord\":false,\"vals\":[\"0.0\",\"63.0\",\"132.0\"],\"idx\":121},{\"ord\":false,\"vals\":[\"0.0\",\"8.0\",\"9.0\",\"59.0\",\"176.0\"],\"idx\":122},{\"ord\":false,\"vals\":[\"0.0\",\"9.0\",\"18.0\",\"52.0\"],\"idx\":133},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":134},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":135},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":136},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":137},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":138},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":139},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":140},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":141},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":142},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":143},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":144},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":145},{\"ord\":false,\"vals\":[\"0.0\",\"71.0\",\"251.0\"],\"idx\":148},{\"ord\":false,\"vals\":[\"0.0\",\"13.0\",\"140.0\",\"192.0\",\"251.0\"],\"idx\":149},{\"ord\":false,\"vals\":[\"0.0\",\"13.0\",\"41.0\",\"61.0\",\"63.0\",\"111.0\",\"128.0\",\"162.0\",\"163.0\",\"226.0\"],\"idx\":161},{\"ord\":false,\"vals\":[\"0.0\",\"4.0\",\"26.0\",\"43.0\",\"69.0\"],\"idx\":162},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":165},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":166},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":167},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":168},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":169},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":170},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":171},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":172},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":173},{\"ord\":false,\"vals\":[\"0.0\",\"6.0\",\"44.0\",\"123.0\",\"251.0\"],\"idx\":175},{\"ord\":false,\"vals\":[\"0.0\",\"15.0\",\"37.0\",\"54.0\",\"208.0\",\"247.0\",\"251.0\"],\"idx\":176},{\"ord\":false,\"vals\":[\"0.0\",\"8.0\",\"31.0\",\"54.0\",\"98.0\",\"122.0\",\"127.0\",\"130.0\"],\"idx\":190},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":193},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":194},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":195},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":196},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":197},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":198},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":199},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":200},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":201},{\"ord\":false,\"vals\":[\"0.0\",\"13.0\",\"44.0\",\"87.0\"],\"idx\":202},{\"ord\":false,\"vals\":[\"0.0\",\"29.0\",\"38.0\",\"115.0\",\"204.0\",\"230.0\",\"247.0\"],\"idx\":203},{\"ord\":false,\"vals\":[\"0.0\",\"18.0\",\"20.0\",\"250.0\"],\"idx\":219},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":221},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":222},', 
+  'spark.sql.sources.schema.part.2'='{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":223},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":224},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":225},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":226},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":227},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":228},{\"ord\":false,\"vals\":[\"0.0\",\"29.0\",\"105.0\",\"118.0\",\"229.0\"],\"idx\":230},{\"ord\":false,\"vals\":[\"0.0\",\"19.0\",\"39.0\",\"57.0\",\"107.0\",\"241.0\",\"253.0\",\"254.0\",\"255.0\"],\"idx\":231},{\"ord\":false,\"vals\":[\"0.0\",\"5.0\",\"19.0\",\"65.0\",\"116.0\",\"187.0\",\"250.0\"],\"idx\":247},{\"ord\":false,\"vals\":[\"0.0\",\"13.0\",\"250.0\"],\"idx\":248},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":249},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":250},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":251},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":252},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":253},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":254},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":255},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":256},{\"ord\":false,\"vals\":[\"0.0\",\"73.0\",\"120.0\"],\"idx\":257},{\"ord\":false,\"vals\":[\"0.0\",\"6.0\",\"10.0\",\"15.0\",\"193.0\",\"226.0\",\"253.0\",\"254.0\"],\"idx\":258},{\"ord\":false,\"vals\":[\"0.0\",\"3.0\",\"153.0\",\"252.0\"],\"idx\":276},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":277},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":278},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":279},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":280},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":281},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":282},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":283},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":284},{\"ord\":false,\"vals\":[\"0.0\",\"4.0\",\"15.0\",\"31.0\",\"57.0\",\"60.0\",\"156.0\"],\"idx\":285},{\"ord\":false,\"vals\":[\"0.0\",\"5.0\",\"14.0\",\"104.0\",\"250.0\",\"252.0\"],\"idx\":304},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":305},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":306},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":307},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":308},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":309},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":310},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":311},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":312},{\"ord\":false,\"vals\":[\"0.0\",\"13.0\",\"19.0\",\"43.0\",\"59.0\",\"63.0\",\"208.0\",\"224.0\",\"226.0\"],\"idx\":313},{\"ord\":false,\"vals\":[\"0.0\",\"18.0\",\"48.0\",\"57.0\",\"61.0\",\"140.0\",\"230.0\",\"250.0\",\"252.0\"],\"idx\":332},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":333},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":334},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":335},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":336},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":337},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":338},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":339},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":340},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":361},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":362},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":363},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":364},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":365},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":366},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":367},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":368},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":389},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":390},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":391},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":392},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":393},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":394},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":395},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":417},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":418},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":419},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":420},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":421},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":422},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":423},{\"ord\":false,\"vals\":[\"0.0\",\"5.0\",\"29.0\"],\"idx\":424},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":445},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":446},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":447},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":448},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":449},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":450},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":451},{\"ord\":false,\"vals\":[\"0.0\",\"24.0\",\"29.0\"],\"idx\":452},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":473},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":474},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":475},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":476},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":477},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":478},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":479},{\"ord\":false,\"vals\":[\"0.0\",\"24.0\",\"45.0\",\"63.0\",\"141.0\"],\"idx\":480},{\"ord\":false,\"vals\":[\"0.0\",\"41.0\",\"49.0\",\"71.0\",\"200.0\",\"209.0\",\"236.0\",\"2', 
+  'spark.sql.sources.schema.part.3'='55.0\"],\"idx\":500},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":501},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":502},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":503},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":504},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":505},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":506},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":507},{\"ord\":false,\"vals\":[\"0.0\",\"24.0\",\"46.0\",\"66.0\",\"67.0\",\"73.0\"],\"idx\":508},{\"ord\":false,\"vals\":[\"0.0\",\"7.0\",\"71.0\",\"112.0\",\"119.0\",\"155.0\",\"198.0\"],\"idx\":528},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":529},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":530},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":531},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":532},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":533},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":534},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":535},{\"ord\":false,\"vals\":[\"0.0\",\"19.0\",\"24.0\",\"67.0\",\"73.0\"],\"idx\":536},{\"ord\":false,\"vals\":[\"0.0\",\"117.0\",\"143.0\",\"164.0\",\"214.0\",\"240.0\",\"244.0\",\"255.0\"],\"idx\":555},{\"ord\":false,\"vals\":[\"0.0\",\"31.0\",\"45.0\",\"63.0\",\"114.0\"],\"idx\":556},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":557},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":558},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":559},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":560},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":561},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":562},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":563},{\"ord\":false,\"vals\":[\"0.0\",\"9.0\",\"20.0\",\"73.0\"],\"idx\":564},{\"ord\":false,\"vals\":[\"0.0\",\"8.0\",\"17.0\",\"33.0\",\"85.0\",\"99.0\",\"142.0\",\"226.0\"],\"idx\":583},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":584},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":585},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":586},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":587},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":588},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":589},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":590},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":591},{\"ord\":false,\"vals\":[\"0.0\",\"13.0\",\"26.0\",\"41.0\",\"103.0\",\"118.0\",\"251.0\"],\"idx\":593},{\"ord\":false,\"vals\":[\"0.0\",\"14.0\",\"34.0\",\"84.0\",\"125.0\",\"164.0\",\"220.0\",\"226.0\"],\"idx\":610},{\"ord\":false,\"vals\":[\"0.0\",\"19.0\",\"20.0\",\"29.0\"],\"idx\":611},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":612},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":613},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":615},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":616},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":617},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":618},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":619},{\"ord\":false,\"vals\":[\"0.0\",\"82.0\",\"236.0\"],\"idx\":621},{\"ord\":false,\"vals\":[\"0.0\",\"14.0\",\"32.0\",\"71.0\",\"75.0\",\"141.0\",\"166.0\",\"173.0\",\"251.0\"],\"idx\":637},{\"ord\":false,\"vals\":[\"0.0\",\"1.0\",\"29.0\",\"137.0\"],\"idx\":638},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":639},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":640},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":641},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":642},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":643},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":644},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":645},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":646},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":647},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":648},{\"ord\":false,\"vals\":[\"0.0\",\"3.0\",\"12.0\",\"19.0\",\"158.0\",\"176.0\"],\"idx\":650},{\"ord\":false,\"vals\":[\"0.0\",\"20.0\",\"96.0\",\"155.0\",\"201.0\",\"251.0\"],\"idx\":664},{\"ord\":false,\"vals\":[\"0.0\",\"25.0\",\"71.0\",\"173.0\"],\"idx\":665},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":667},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":668},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":669},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":670},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":671},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":672},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":673},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":674},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":675},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":676},{\"ord\":false,\"vals\":[\"0.0\"],\"idx\":677},{\"ord\":false,\"vals\":[\"0.0\",\"37.0\",\"40.0\"],\"idx\":678},{\"ord\":false,\"vals\":[\"0.0\",\"239.0\",\"251.0\"],\"idx\":679},{\"ord\":false,\"vals\":[\"0.0\",\"14.0\",\"24.0\",\"32.0\",\"251.0\",\"253.0\"],\"idx\":680},{\"ord\":false,\"vals\":[\"0.0\",\"75.0\",\"78.0\",\"94.0\",\"178.0\",\"180.0\",\"193.0\",\"225.0\",\"253.0\"],\"idx\":681},{\"ord\":false,\"vals\":[\"0.0\",\"28.0\",\"31.0\",\"40.0\",\"49.0\",\"57.0\",\"145.0\",\"253.0\",\"254.0\"],\"idx\":688},{\"ord\":false,\"vals\":[\"0.0\",\"4.0\",\"22.0\",\"49.0\",\"74.0\",\"253.0\",\"254.0\"],\"idx\":689},{\"ord\":false,\"vals\":[\"0.0\",\"7.0\",\"29.0\",\"147.0\",\"182.0\"],\"idx\":690},{\"ord\":false,\"vals\":[\"0.0\",\"3', 
+  'spark.sql.sources.schema.part.4'='6.0\",\"73.0\"],\"idx\":691}],\"binary\":[{\"vals\":[\"0.0\",\"56.0\"],\"idx\":95},{\"vals\":[\"0.0\",\"247.0\"],\"idx\":96},{\"vals\":[\"0.0\",\"85.0\"],\"idx\":119},{\"vals\":[\"0.0\",\"253.0\"],\"idx\":120},{\"vals\":[\"0.0\",\"82.0\"],\"idx\":146},{\"vals\":[\"0.0\",\"241.0\"],\"idx\":147},{\"vals\":[\"0.0\",\"85.0\"],\"idx\":163},{\"vals\":[\"0.0\",\"14.0\"],\"idx\":164},{\"vals\":[\"0.0\",\"175.0\"],\"idx\":174},{\"vals\":[\"0.0\",\"250.0\"],\"idx\":191},{\"vals\":[\"0.0\",\"146.0\"],\"idx\":192},{\"vals\":[\"0.0\",\"250.0\"],\"idx\":220},{\"vals\":[\"0.0\",\"23.0\"],\"idx\":229},{\"vals\":[\"0.0\",\"19.0\"],\"idx\":396},{\"vals\":[\"0.0\",\"73.0\"],\"idx\":592},{\"vals\":[\"0.0\",\"140.0\"],\"idx\":614},{\"vals\":[\"0.0\",\"62.0\"],\"idx\":620},{\"vals\":[\"0.0\",\"83.0\"],\"idx\":649},{\"vals\":[\"0.0\",\"10.0\"],\"idx\":666}]},\"num_attrs\":692}}}]}', 
+  'totalSize'='73401', 
+  'transient_lastDdlTime'='1509934946')
+;create TABLE `wfwfwfwf`(
+  `lable` double, 
+  `sentence` string, 
+  `segmented` array<string>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/wfwfwfwf') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/wfwfwfwf'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"lable\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"segmented\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='1205', 
+  'transient_lastDdlTime'='1509523453')
+;create TABLE `whatthefuck`(
+  `lable` double, 
+  `sentence` string, 
+  `segmented` array<string>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/whatthefuck') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/whatthefuck'
+TBLPROPERTIES (
+  'COLUMN_STATS_ACCURATE'='false', 
+  'numFiles'='1', 
+  'numRows'='-1', 
+  'rawDataSize'='-1', 
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"lable\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"segmented\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}}]}', 
+  'totalSize'='1205', 
+  'transient_lastDdlTime'='1509593190')
+;create TABLE `woqunidaye`(
+  `lable` double, 
+  `sentence` string, 
+  `segmented` array<string>, 
+  `tf` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/woqunidaye') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'file:/home/wuxiang/hive-1.2.2/metastore_db/woqunidaye'
+TBLPROPERTIES (
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"lable\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"segmented\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}},{\"name\":\"tf\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"num_attrs\":100}}}]}', 
+  'transient_lastDdlTime'='1509620536')
+;create TABLE `woqunidayede`(
+  `lable` double, 
+  `sentence` string, 
+  `segmented` array<string>, 
+  `tf` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/woqunidayede') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'hdfs://bgs-5p11-wangjiyu:8020/home/wuxiang/hive-1.2.2/metastore_db/woqunidayede'
+TBLPROPERTIES (
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"lable\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"segmented\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}},{\"name\":\"tf\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"num_attrs\":100}}}]}', 
+  'transient_lastDdlTime'='1509621605')
+;create TABLE `woqunidayedes`(
+  `lable` double, 
+  `sentence` string, 
+  `segmented` array<string>, 
+  `tf` struct<type:tinyint,size:int,indices:array<int>,values:array<double>>)
+ROW FORMAT SERDE 
+  'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe' 
+WITH SERDEPROPERTIES ( 
+  'path'='hdfs://bgs-5p11-wangjiyu:8020/user/hive/warehouse/woqunidayedes') 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
+LOCATION
+  'file:/home/wuxiang/hive-1.2.2/metastore_db/woqunidayedes'
+TBLPROPERTIES (
+  'spark.sql.sources.provider'='parquet', 
+  'spark.sql.sources.schema.numParts'='1', 
+  'spark.sql.sources.schema.part.0'='{\"type\":\"struct\",\"fields\":[{\"name\":\"lable\",\"type\":\"double\",\"nullable\":true,\"metadata\":{}},{\"name\":\"sentence\",\"type\":\"string\",\"nullable\":true,\"metadata\":{}},{\"name\":\"segmented\",\"type\":{\"type\":\"array\",\"elementType\":\"string\",\"containsNull\":true},\"nullable\":true,\"metadata\":{}},{\"name\":\"tf\",\"type\":{\"type\":\"udt\",\"class\":\"org.apache.spark.ml.linalg.VectorUDT\",\"pyClass\":\"pyspark.ml.linalg.VectorUDT\",\"sqlType\":{\"type\":\"struct\",\"fields\":[{\"name\":\"type\",\"type\":\"byte\",\"nullable\":false,\"metadata\":{}},{\"name\":\"size\",\"type\":\"integer\",\"nullable\":true,\"metadata\":{}},{\"name\":\"indices\",\"type\":{\"type\":\"array\",\"elementType\":\"integer\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}},{\"name\":\"values\",\"type\":{\"type\":\"array\",\"elementType\":\"double\",\"containsNull\":false},\"nullable\":true,\"metadata\":{}}]}},\"nullable\":true,\"metadata\":{\"ml_attr\":{\"num_attrs\":100}}}]}', 
+  'transient_lastDdlTime'='1509621448')
