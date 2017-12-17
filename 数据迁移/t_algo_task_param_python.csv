@@ -1,0 +1,197 @@
+id,Default,Doc,Name,Required,Type,algo
+1,label,Column name of label.,LabelCol,TRUE,String,DataFrameDecisionTreeClassifierTrainSpell
+2,features,Column of features.,FeaturesCol,TRUE,String,DataFrameDecisionTreeClassifierTrainSpell
+3,rawPrediction,Param for prediction column name. (default: rawPrediction),RawPredictionCol,FALSE,String,DataFrameDecisionTreeClassifierTrainSpell
+4,159147643,Random seed. (default: 159147643),Seed,FALSE,long,DataFrameDecisionTreeClassifierTrainSpell
+5,10,Param for set checkpoint interval (>= 1) or disable checkpoint (-1). (default: 10),CheckpointInterval,FALSE,int,DataFrameDecisionTreeClassifierTrainSpell
+6,gini,Criterion used for information gain calculation (case-insensitive). (default: gini),Impurity,FALSE,String,DataFrameDecisionTreeClassifierTrainSpell
+7,32,Maximum number of bins used for discretizing continuous features and for choosing how to split on features at each node. (default: 32),MaxBins,FALSE,int,DataFrameDecisionTreeClassifierTrainSpell
+8,5,Maximum depth of the tree (>= 0). (default: 5),MaxDepth,FALSE,int,DataFrameDecisionTreeClassifierTrainSpell
+9,0.0,Minimum information gain for a split to be considered at a tree node. (default: 0.0),MinInfoGain,FALSE,double,DataFrameDecisionTreeClassifierTrainSpell
+10,1,Minimum number of instances each child must have after split. (default: 1),MinInstancesPerNode,FALSE,int,DataFrameDecisionTreeClassifierTrainSpell
+11,prediction,Param for prediction column name.,PredictionCol,TRUE,String,DataFrameDecisionTreeClassifierTrainSpell
+12,probabilities,Param for Column name for predicted class conditional probabilities. (default: probabilities),ProbabilityCol,FALSE,String,DataFrameDecisionTreeClassifierTrainSpell
+13,,Param for Thresholds in multi-class classification to adjust the probability of predicting each class. (default: null),Thresholds,FALSE,Seq,DataFrameDecisionTreeClassifierTrainSpell
+14,label,Column name of label.,LabelCol,TRUE,String,DataFrameGBTClassifierTrainSpell
+15,features,Column of features.,FeaturesCol,TRUE,String,DataFrameGBTClassifierTrainSpell
+16,20,Max iteration of train (default: 20),MaxIter,FALSE,int,DataFrameGBTClassifierTrainSpell
+17,gini,Criterion used for information gain calculation (case-insensitive). (default: gini),Impurity,FALSE,String,DataFrameGBTClassifierTrainSpell
+18,32,Maximum number of bins used for discretizing continuous features and for choosing how to split on features at each node. (default: 32),MaxBins,FALSE,int,DataFrameGBTClassifierTrainSpell
+19,5,Maximum depth of the tree (>= 0). (default: 5),MaxDepth,FALSE,int,DataFrameGBTClassifierTrainSpell
+20,0.0,Minimum information gain for a split to be considered at a tree node. (default: 0.0),MinInfoGain,FALSE,double,DataFrameGBTClassifierTrainSpell
+21,10,Param for set checkpoint interval (>= 1) or disable checkpoint (-1). (default: 10),CheckpointInterval,FALSE,int,DataFrameGBTClassifierTrainSpell
+22,1,Minimum number of instances each child must have after split. (default: 1),MinInstancesPerNode,FALSE,int,DataFrameGBTClassifierTrainSpell
+23,prediction,Param for prediction column name.,PredictionCol,TRUE,String,DataFrameGBTClassifierTrainSpell
+24,-1287390502,Random seed. (default: -1287390502),Seed,FALSE,long,DataFrameGBTClassifierTrainSpell
+25,rawPrediction,Param for prediction column name. (default: rawPrediction),RawPredictionCol,FALSE,String,DataFrameGBTClassifierTrainSpell
+26,1.0,"Fraction of the training data used for learning each decision tree, in range (0, 1]. (default: 1.0)",subsamplingRate,FALSE,double,DataFrameGBTClassifierTrainSpell
+27,logistic,Loss function which GBT tries to minimize. (default: logistic),LossType,FALSE,String,DataFrameGBTClassifierTrainSpell
+28,0.1,"Set the initial step size of SGD for the first step. Default 1.0. In subsequent steps, the step size will decrease with stepSize/sqrt(t) (default: 0.1)",StepSize,FALSE,double,DataFrameGBTClassifierTrainSpell
+29,100,Max iteration of train (default: 100),MaxIter,FALSE,int,DataFrameLogisticRegressionTrainSpell
+30,0.0,Regularize parameter (default: 0.0),RegParam,FALSE,double,DataFrameLogisticRegressionTrainSpell
+31,0.0,The param of ¦Á. (default: 0.0),ElasticNetParam,FALSE,double,DataFrameLogisticRegressionTrainSpell
+32,auto,binomial logistic regression or multinomial logistic regression (default: auto),Family,FALSE,String,DataFrameLogisticRegressionTrainSpell
+33,label,Column name of label.,LabelCol,TRUE,String,DataFrameLogisticRegressionTrainSpell
+34,features,Column of features.,FeaturesCol,TRUE,String,DataFrameLogisticRegressionTrainSpell
+35,true,Param for whether to fit an intercept term. (default: true),FitIntercept,FALSE,boolean,DataFrameLogisticRegressionTrainSpell
+36,true,Param for whether to standardize the training features before fitting the model. (default: true),Standardization,FALSE,boolean,DataFrameLogisticRegressionTrainSpell
+37,0.5,Limit of calculation (default: 0.5),Threshold,FALSE,double,DataFrameLogisticRegressionTrainSpell
+38,1.0E-6,Param for the convergence tolerance for iterative algorithms (>= 0). (default: 1.0E-6),Tol,FALSE,double,DataFrameLogisticRegressionTrainSpell
+39,probability,Param for Column name for predicted class conditional probabilities. (default: probability),ProbabilityCol,FALSE,String,DataFrameLogisticRegressionTrainSpell
+40,RawPredictionCol,Param for prediction column name. (default: RawPredictionCol),RawPredictionCol,FALSE,String,DataFrameLogisticRegressionTrainSpell
+41,prediction,Param for prediction column name.,PredictionCol,TRUE,String,DataFrameLogisticRegressionTrainSpell
+42,label,Column name of label.,LabelCol,TRUE,String,DataFrameNaiveBayesTrainSpell
+43,features,Column of features.,FeaturesCol,TRUE,String,DataFrameNaiveBayesTrainSpell
+44,,Param for weight column name. (default: null),WeightCol,FALSE,String,DataFrameNaiveBayesTrainSpell
+45,multinomial,The model type which is a string (case-sensitive). (default: multinomial),ModelType,FALSE,String,DataFrameNaiveBayesTrainSpell
+46,1.0,The smoothing parameter. (default: 1.0),smothing,FALSE,double,DataFrameNaiveBayesTrainSpell
+47,prediction,Param for prediction column name.,PredictionCol,TRUE,String,DataFrameNaiveBayesTrainSpell
+48,probabilities,Param for Column name for predicted class conditional probabilities. (default: probabilities),ProbabilityCol,FALSE,String,DataFrameNaiveBayesTrainSpell
+49,rawPrediction,Param for prediction column name. (default: rawPrediction),RawPredictionCol,FALSE,String,DataFrameNaiveBayesTrainSpell
+50,,Param for Thresholds in multi-class classification to adjust the probability of predicting each class. (default: null),Thresholds,FALSE,Seq,DataFrameNaiveBayesTrainSpell
+51,label,Column name of label.,LabelCol,TRUE,String,DataFrameRandomForestClassifierTrainSpell
+52,features,Column of features.,FeaturesCol,TRUE,String,DataFrameRandomForestClassifierTrainSpell
+53,20,Number of trees to train.,NumTrees,TRUE,int,DataFrameRandomForestClassifierTrainSpell
+54,gini,Criterion used for information gain calculation (case-insensitive). (default: gini),Impurity,FALSE,String,DataFrameRandomForestClassifierTrainSpell
+55,32,Maximum number of bins used for discretizing continuous features and for choosing how to split on features at each node. (default: 32),MaxBins,FALSE,int,DataFrameRandomForestClassifierTrainSpell
+56,5,Maximum depth of the tree (>= 0). (default: 5),MaxDepth,FALSE,int,DataFrameRandomForestClassifierTrainSpell
+57,0.0,Minimum information gain for a split to be considered at a tree node. (default: 0.0),MinInfoGain,FALSE,double,DataFrameRandomForestClassifierTrainSpell
+58,10,Param for set checkpoint interval (>= 1) or disable checkpoint (-1). (default: 10),CheckpointInterval,FALSE,int,DataFrameRandomForestClassifierTrainSpell
+59,1,Minimum number of instances each child must have after split. (default: 1),MinInstancesPerNode,FALSE,int,DataFrameRandomForestClassifierTrainSpell
+60,prediction,Param for prediction column name.,PredictionCol,TRUE,String,DataFrameRandomForestClassifierTrainSpell
+61,auto,The number of features to consider for splits at each tree node. (default: auto),FeatureSubsetStrategy,FALSE,String,DataFrameRandomForestClassifierTrainSpell
+62,probabilities,Param for Column name for predicted class conditional probabilities. (default: probabilities),ProbabilityCol,FALSE,String,DataFrameRandomForestClassifierTrainSpell
+63,,Param for Thresholds in multi-class classification to adjust the probability of predicting each class. (default: null),Thresholds,FALSE,Seq,DataFrameRandomForestClassifierTrainSpell
+64,159147643,Random seed. (default: 159147643),Seed,FALSE,long,DataFrameRandomForestClassifierTrainSpell
+65,rawPrediction,Param for prediction column name. (default: rawPrediction),RawPredictionCol,FALSE,String,DataFrameRandomForestClassifierTrainSpell
+66,1.0,"Fraction of the training data used for learning each decision tree, in range (0, 1]. (default: 1.0)",subsamplingRate,FALSE,double,DataFrameRandomForestClassifierTrainSpell
+67,4,The number of clusters to infer. Must be > 1.,K,TRUE,int,DataFrameBisectingKMeansSpell
+68,566573821,Random seed. (default: 566573821),Seed,FALSE,long,DataFrameBisectingKMeansSpell
+69,prediction,Param for prediction column name.,PredictionCol,TRUE,String,DataFrameBisectingKMeansSpell
+70,features,Column of features.,FeaturesCol,TRUE,String,DataFrameBisectingKMeansSpell
+71,20,Param for maximum number of iterations (>= 0). (default: 20),maxInter,FALSE,int,DataFrameBisectingKMeansSpell
+72,1,Minnum size of divisibleCluster  (default: 1),minDivisibleClusterSize,FALSE,int,DataFrameBisectingKMeansSpell
+73,label,Column name of label.,LabelCol,TRUE,String,DataFrameBinaryClassificationMetricsSpell
+74,prediction,Param for prediction column name.,PredictionCol,TRUE,String,DataFrameBinaryClassificationMetricsSpell
+75,label,Column name of label.,LabelCol,TRUE,String,DataFrameRegressionMetricsSpell
+76,prediction,Param for prediction column name.,PredictionCol,TRUE,String,DataFrameRegressionMetricsSpell
+77,,input column name,InputCol,TRUE,String,DataFrameBinarizerSpell
+78,output,output column name,OutputCol,TRUE,String,DataFrameBinarizerSpell
+79,0.5,Limit of calculation (default: 0.5),Threshold,FALSE,double,DataFrameBinarizerSpell
+80,,input column name,InputCol,TRUE,String,DataFrameBucketizerSpell
+81,output,output column name,OutputCol,TRUE,String,DataFrameBucketizerSpell
+82,,Parameter for mapping continuous features into buckets.,Splits,TRUE,Seq,DataFrameBucketizerSpell
+83,output,output column name,OutputCol,TRUE,String,DataFrameChiSqSelectorSpell
+84,features,Column of features.,FeaturesCol,TRUE,String,DataFrameChiSqSelectorSpell
+85,label,Column name of label.,LabelCol,TRUE,String,DataFrameChiSqSelectorSpell
+86,50,"Number of features that selector will select, ordered by ascending p-value.",NumTopFeatures,TRUE,int,DataFrameChiSqSelectorSpell
+87,,input column name,InputCol,TRUE,String,DataFrameCountVectorzerSpell
+88,output,output column name,OutputCol,TRUE,String,DataFrameCountVectorzerSpell
+89,262144,Max size of the vocabulary. (default: 262144),VocabSize,FALSE,int,DataFrameCountVectorzerSpell
+90,1.0,Specifies the minimum number of different documents a term must appear in to be included in the vocabulary. (default: 1.0),MinDF,FALSE,double,DataFrameCountVectorzerSpell
+91,false,Binary toggle to control term frequency counts. (default: false),Binary,FALSE,boolean,DataFrameCountVectorzerSpell
+92,,input column name,InputCol,TRUE,String,DataFrameDCTSpell
+93,output,output column name,OutputCol,TRUE,String,DataFrameDCTSpell
+94,false, Indicates whether to perform the inverse DCT (true) or forward DCT (false).,Inverse,TRUE,boolean,DataFrameDCTSpell
+95,,input column name,InputCol,TRUE,String,IDFTrainSpell
+96,0,The minimum number of documents in which a term should appear. (default: 0),MinDocFreq,FALSE,int,IDFTrainSpell
+97,output,output column name,OutputCol,TRUE,String,IDFTrainSpell
+98,,input column name,InputCol,TRUE,String,DataFrameIndexToStringSpell
+99,output,output column name,OutputCol,TRUE,String,DataFrameIndexToStringSpell
+100,,input column name,InputCol,TRUE,String,DataFrameMinMaxScalerSpell
+101,output,output column name,OutputCol,TRUE,String,DataFrameMinMaxScalerSpell
+102,,input column name,InputCol,TRUE,String,DataFrameNGramSpell
+103,output,output column name,OutputCol,TRUE,String,DataFrameNGramSpell
+104,2,"Minimum n-gram length, greater than or equal to 1.",N,TRUE,int,DataFrameNGramSpell
+105,,input column name,InputCol,TRUE,String,DataFrameNormalizerSpell
+106,output,output column name,OutputCol,TRUE,String,DataFrameNormalizerSpell
+107,2.0,Normalization in Lp space.,P,TRUE,double,DataFrameNormalizerSpell
+108,,input column name,InputCol,TRUE,String,DataFrameOneHotEncoderSpell
+109,output,output column name,OutputCol,TRUE,String,DataFrameOneHotEncoderSpell
+110,true,Whether to drop the last category in the encoded vector. (default: true),DropLast,FALSE,boolean,DataFrameOneHotEncoderSpell
+111,,input column name,InputCol,TRUE,String,DataFramePCASpell
+112,output,output column name,OutputCol,TRUE,String,DataFramePCASpell
+113,4,The number of clusters to infer. Must be > 1.,K,TRUE,int,DataFramePCASpell
+114,,trainset random rate,RandomRate,TRUE,double,DataFrameRandomSplit
+115,trainset,split dataset to trainset (default: trainset),Trainset,FALSE,String,DataFrameRandomSplit
+116,testset,split dataset to testset (default: testset),TestSet,FALSE,String,DataFrameRandomSplit
+117,,input column name,InputCol,TRUE,String,DataFrameRegexTokenizerSpell
+118,output,output column name,OutputCol,TRUE,String,DataFrameRegexTokenizerSpell
+119,\s+,Regex pattern used to match delimiters if gaps is true or tokens if gaps is false. (default: \s+),Pattern,FALSE,String,DataFrameRegexTokenizerSpell
+120,1,Minimum token length. (default: 1),MinTokenLength,FALSE,int,DataFrameRegexTokenizerSpell
+121,true,Indicates whether to convert all characters to lowercase before tokenizing. (default: true),ToLowercase,FALSE,boolean,DataFrameRegexTokenizerSpell
+122,,input column name,InputCol,TRUE,String,DataFrameStandardScalerSpell
+123,output,output column name,OutputCol,TRUE,String,DataFrameStandardScalerSpell
+124,false,Whether to center the data with mean before scaling. (default: false),WithMean,FALSE,boolean,DataFrameStandardScalerSpell
+125,true,Whether to scale the data to unit standard deviation. (default: true),WithStd,FALSE,boolean,DataFrameStandardScalerSpell
+126,,input column name,InputCol,TRUE,String,DataFrameStringIndexerSpell
+127,output,output column name,OutputCol,TRUE,String,DataFrameStringIndexerSpell
+128,error,Param for how to handle invalid entries. (default: error),HandleInvalid,FALSE,String,DataFrameStringIndexerSpell
+129,,Param for input column names.,InputCols,TRUE,Seq,DataFrameVectorAssemblerSpell
+130,output,output column name,OutputCol,TRUE,String,DataFrameVectorAssemblerSpell
+131,,input column name,InputCol,TRUE,String,DataFrameVectorIndexerSpell
+132,output,output column name,OutputCol,TRUE,String,DataFrameVectorIndexerSpell
+133,10,Threshold for the number of values a categorical feature can take.,MaxCategories,TRUE,int,DataFrameVectorIndexerSpell
+134,10,Max iteration of train (default: 10),MaxIter,FALSE,int,DataFrameALSTrainSpell
+135,0.1,Regularize parameter (default: 0.1),RegParam,FALSE,double,DataFrameALSTrainSpell
+136,user,Param for the column name for user ids.,UserCol,TRUE,String,DataFrameALSTrainSpell
+137,item,Param for the column name for item ids.,ItemCol,TRUE,String,DataFrameALSTrainSpell
+138,rating,Param for the column name for ratings.,RatingCol,TRUE,String,DataFrameALSTrainSpell
+139,prediction,Param for prediction column name.,PredictionCol,TRUE,String,DataFrameALSTrainSpell
+140,1.0,Param for the alpha parameter in the implicit preference formulation (nonnegative). (default: 1.0),Alpha,FALSE,double,DataFrameALSTrainSpell
+141,10,Param for set checkpoint interval (>= 1) or disable checkpoint (-1). (default: 10),CheckpointInterval,FALSE,int,DataFrameALSTrainSpell
+142,MEMORY_AND_DISK, (default: MEMORY_AND_DISK),FinalStorageLevel,FALSE,String,DataFrameALSTrainSpell
+143,false,Param for whether to apply nonnegativity constraints. (default: false),Nonnegative,FALSE,boolean,DataFrameALSTrainSpell
+144,10,Param for number of blocks. (default: 10),NumUserBlocks,FALSE,int,DataFrameALSTrainSpell
+145,10,Param for number of item blocks (positive). (default: 10),NumItemBlocks,FALSE,int,DataFrameALSTrainSpell
+146,10,Param for rank of the matrix factorization (positive). (default: 10),Rank,FALSE,int,DataFrameALSTrainSpell
+147,1994790107,Random seed. (default: 1994790107),Seed,FALSE,long,DataFrameALSTrainSpell
+148,false,Param to decide whether to use implicit preference. (default: false),ImplicitPrefs,FALSE,boolean,DataFrameALSTrainSpell
+149,label,Column name of label.,LabelCol,TRUE,String,DataFrameDecisionTreeRegressorTrainSpell
+150,features,Column of features.,FeaturesCol,TRUE,String,DataFrameDecisionTreeRegressorTrainSpell
+151,prediction,Param for prediction column name.,PredictionCol,TRUE,String,DataFrameDecisionTreeRegressorTrainSpell
+152,,Param for Column name for the biased sample variance of prediction. (default: null),varianceCol,FALSE,String,DataFrameDecisionTreeRegressorTrainSpell
+153,false, (default: false),CacheNodeIds,FALSE,boolean,DataFrameDecisionTreeRegressorTrainSpell
+154,10,Param for set checkpoint interval (>= 1) or disable checkpoint (-1). (default: 10),CheckpointInterval,FALSE,int,DataFrameDecisionTreeRegressorTrainSpell
+155,variance,Criterion used for information gain calculation (case-insensitive). (default: variance),Impurity,FALSE,String,DataFrameDecisionTreeRegressorTrainSpell
+156,32,Maximum number of bins used for discretizing continuous features and for choosing how to split on features at each node. (default: 32),MaxBins,FALSE,int,DataFrameDecisionTreeRegressorTrainSpell
+157,5,Maximum depth of the tree (>= 0). (default: 5),MaxDepth,FALSE,int,DataFrameDecisionTreeRegressorTrainSpell
+158,256,Max number of memory intput. (default: 256),maxMemoryInMB,FALSE,int,DataFrameDecisionTreeRegressorTrainSpell
+159,0.0,Minimum information gain for a split to be considered at a tree node. (default: 0.0),MinInfoGain,FALSE,double,DataFrameDecisionTreeRegressorTrainSpell
+160,1,Minimum number of instances each child must have after split. (default: 1),MinInstancesPerNode,FALSE,int,DataFrameDecisionTreeRegressorTrainSpell
+161,926680331,Random seed. (default: 926680331),Seed,FALSE,long,DataFrameDecisionTreeRegressorTrainSpell
+162,100,Max iteration of train (default: 100),MaxIter,FALSE,int,DataFrameLinearRegressionTrainSpell
+163,0.0,Regularize parameter (default: 0.0),RegParam,FALSE,double,DataFrameLinearRegressionTrainSpell
+164,0.0,The param of ¦Á. (default: 0.0),ElasticNetParam,FALSE,double,DataFrameLinearRegressionTrainSpell
+165,true,Param for whether to fit an intercept term. (default: true),FitIntercept,FALSE,boolean,DataFrameLinearRegressionTrainSpell
+166,label,Column name of label.,LabelCol,TRUE,String,DataFrameLinearRegressionTrainSpell
+167,features,Column of features.,FeaturesCol,TRUE,String,DataFrameLinearRegressionTrainSpell
+168,,Param for weight column name. (default: null),WeightCol,FALSE,String,DataFrameLinearRegressionTrainSpell
+169,2,the depth of aggregation (default: 2),AggregationDepth,FALSE,int,DataFrameLinearRegressionTrainSpell
+170,true,Param for whether to standardize the training features before fitting the model. (default: true),Standardization,FALSE,boolean,DataFrameLinearRegressionTrainSpell
+171,auto,Param for the solver algorithm for optimization. (default: auto),Solver,FALSE,String,DataFrameLinearRegressionTrainSpell
+172,1.0E-6,Param for the convergence tolerance for iterative algorithms (>= 0). (default: 1.0E-6),Tol,FALSE,double,DataFrameLinearRegressionTrainSpell
+173,prediction,Param for prediction column name.,PredictionCol,TRUE,String,DataFrameLinearRegressionTrainSpell
+174,label,Column name of label.,LabelCol,TRUE,String,DataFrameRandomForestRegressorTrainSpell
+175,features,Column of features.,FeaturesCol,TRUE,String,DataFrameRandomForestRegressorTrainSpell
+176,prediction,Param for prediction column name.,PredictionCol,TRUE,String,DataFrameRandomForestRegressorTrainSpell
+177,false, (default: false),CacheNodeIds,FALSE,boolean,DataFrameRandomForestRegressorTrainSpell
+178,10,Param for set checkpoint interval (>= 1) or disable checkpoint (-1). (default: 10),CheckpointInterval,FALSE,int,DataFrameRandomForestRegressorTrainSpell
+179,235498149,Random seed. (default: 235498149),Seed,FALSE,long,DataFrameRandomForestRegressorTrainSpell
+180,variance,Criterion used for information gain calculation (case-insensitive). (default: variance),Impurity,FALSE,String,DataFrameRandomForestRegressorTrainSpell
+181,32,Maximum number of bins used for discretizing continuous features and for choosing how to split on features at each node. (default: 32),MaxBins,FALSE,int,DataFrameRandomForestRegressorTrainSpell
+182,5,Maximum depth of the tree (>= 0). (default: 5),MaxDepth,FALSE,int,DataFrameRandomForestRegressorTrainSpell
+183,256,Max number of memory intput. (default: 256),maxMemoryInMB,FALSE,int,DataFrameRandomForestRegressorTrainSpell
+184,0.0,Minimum information gain for a split to be considered at a tree node. (default: 0.0),MinInfoGain,FALSE,double,DataFrameRandomForestRegressorTrainSpell
+185,1,Minimum number of instances each child must have after split. (default: 1),MinInstancesPerNode,FALSE,int,DataFrameRandomForestRegressorTrainSpell
+186,10,Number of trees to train.,NumTrees,TRUE,int,DataFrameRandomForestRegressorTrainSpell
+187,1.0,"Fraction of the training data used for learning each decision tree, in range (0, 1]. (default: 1.0)",subsamplingRate,FALSE,double,DataFrameRandomForestRegressorTrainSpell
+188,auto,The number of features to consider for splits at each tree node. (default: auto),FeatureSubsetStrategy,FALSE,String,DataFrameRandomForestRegressorTrainSpell
+189,,names of input columns (default: null),InputCols,FALSE,Seq,DataFrameCorrelationsSpell
+190,pearson,Correlation method(default: pearson; alternative: spearman). (default: pearson),CorrelationMethod,FALSE,String,DataFrameCorrelationsSpell
+191,,Param for input column names.,InputCols,TRUE,Seq,DataFrameMultivariateStatisticalSummarySpell
+192,"List(count, max, min, mean, normL1, normL2, numNonzeros, variance)","the labels of rows. (default: List(count, max, min, mean, normL1, normL2, numNonzeros, variance))",rowLabels,FALSE,Seq,DataFrameMultivariateStatisticalSummarySpell
+193,,the labels of columns.,ColLabels,TRUE,Seq,DataFrameMultivariateStatisticalSummarySpell
+194,true,whether or not is transposed (default: true),transposed,FALSE,boolean,DataFrameMultivariateStatisticalSummarySpell
+195,,the number of rows (default: null),numCols,FALSE,int,DataFrameMultivariateStatisticalSummarySpell
+196,,the number of columns (default: null),numRows,FALSE,int,DataFrameMultivariateStatisticalSummarySpell
